@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../index.scss";
+
 const AllRecepies = () => {
+  const [recipes, setRecipes] = useState([]);
+    
+  
+    
+  
+    useEffect(() => {
+      const fetchRecipes = async () => {
+        try {
+          const response = await axios.get("http://localhost:4000");
+          setRecipes(response.data);
+          console.log(response.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+  
+    
+  
+      fetchRecipes();
+   
+    }, []);
+    
+
   return (
+    
     <div className="card-container">
     
       <div className="card">
-        <button className="delete">delete</button>
+        <button className="delete" >delete</button>
         <button className="update">update </button>
 
         <>

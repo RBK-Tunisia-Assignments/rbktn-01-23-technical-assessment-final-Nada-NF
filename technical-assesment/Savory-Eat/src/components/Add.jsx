@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "../App.css";
 
-const Add = () => {
+const Add = (props) => {
+  
   return (
     <div className="add-recipe-form ">
       <div className="form-group">

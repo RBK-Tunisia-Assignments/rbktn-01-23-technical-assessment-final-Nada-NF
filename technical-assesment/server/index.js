@@ -1,8 +1,16 @@
 const express = require("express");
 const app = express();
-const PORT = 4000;
+const cors=require("cors");
 
-// TODO - add additional route handlers as necessary
+app.use(cors());
+const recipe= require("./routes/recipiesRoute.js")
+
+
+
+const PORT = 4000;
+app.use("/",recipe)
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
+
